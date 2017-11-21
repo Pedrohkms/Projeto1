@@ -80,7 +80,9 @@
 			<?php while($row = mysqli_fetch_array($resultado))	{
 				echo "<div class='col-sm-12'>";
 				echo "<div class='col-sm-5'>";
-				echo "<span style='padding: 3%'>" . $row['link'] . "</span>";
+				$link = $row['link'];
+				if (!preg_match('/https/', $link)) $link = "https://".$link;
+				echo "<a href='" . $link .  "' target='_blank' ><span style='padding: 3%'>" . $row['link'] . "</span></a>";
 				echo "</div>";
 				echo "<div class='col-sm-3'>";
 				echo "<span style='padding: 3%'>" . $row['titulo'] . "</span>";
