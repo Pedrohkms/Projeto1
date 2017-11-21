@@ -63,30 +63,38 @@
 		
 	</form>
 	<div class="col-sm-12" style="margin-top: 3%">
-		<div class="col-sm-12">
-		<table id="tabela" border='1'>		
-			<tr>
-				<th>Link</th>
-				<th>Título</th>
-				<th>Categoria</th>
-			</tr>
+		<div class="col-sm-8">
+			<div class="col-sm-12">
+				<div class="col-sm-5">
+					<span style="font-weight: bold;padding: 3%">Link</span>
+				</div>
+				<div class="col-sm-3">
+					<span style="font-weight: bold;padding: 3%">Título</span>
+				</div>
+				<div class="col-sm-3">
+					<span style="font-weight: bold;padding: 3%">Categoria</span>
+				</div>
+				<div class="col-sm-3"></div>
+			</div>
+			<hr>
 			<?php while($row = mysqli_fetch_array($resultado))	{
-					echo "<tr>";
-					echo "<td> <p style='padding: 3%'>" . $row['link'] . "</p></td>";
-					echo "<td><p style='padding: 3%'>" . $row['titulo'] . "</p></td>";
-					echo "<td><p style='padding: 3%'>" . $row['categoria'] . "</p></td>";
-					echo "<td>";
-					echo "<form action='links.php' method='post'>";
-					echo "<input type='hidden' name='id' value=" . $row['id'] . " ></input>";
-					echo "<input type='submit' class='btn btn-primary' name='deletar' id='deletar' value='deletar'>";
-					echo "</form>";
-					echo "</td>";
-					echo "</tr>";
-				}
-				echo "</table>";
-
-				
-			?>
+				echo "<div class='col-sm-12'>";
+				echo "<div class='col-sm-5'>";
+				echo "<span style='padding: 3%'>" . $row['link'] . "</span>";
+				echo "</div>";
+				echo "<div class='col-sm-3'>";
+				echo "<span style='padding: 3%'>" . $row['titulo'] . "</span>";
+				echo "</div>";
+				echo "<div class='col-sm-3'>";
+				echo "<span style='padding: 3%'>" . $row['categoria'] . "</span>";
+				echo "</div>";
+				echo "<div class='col-sm-1'><form action='links.php' method='post'>";
+				echo "<input type='hidden' name='id' value=" . $row['id'] . " ></input>";
+				echo "<input type='submit' class='btn btn-primary'  name='deletar' id='deletar' value='deletar'>";
+				echo "</form></div>";
+				echo "<hr>";
+				echo "</div>";
+			}	?>
 		</div>
 	</div>
 </body>
